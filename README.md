@@ -4,6 +4,40 @@
 
 Esse código é um exemplo de Led Blink (piscar led) desenvolvido por discentes do IFG para o microcontrolador 8051, este codigo em especifico pisca o led a cada 0.5 segundos se utilizado um cristal de 12 Mhz.
 
+## Execuçao:
+
+### Simulador:
+Clone o repositorio
+baixe e instale o java
+abra o edsim51.jar
+carregue o arquivo blink.asm atravez da guia load
+execute a simulaçao
+
+### Microcontrolador:
+Grave o arquivo Blink.hex em um 8051 
+
+## Codigo:
+```
+setup:
+	cpl 	p1.0        ;A instruçao cpl inverte o nivel logico do pino e consequentemente tambem altera o estado do led (resposável por mudar o nivel logico do led
+	mov 	r0,#10      ;Quantidade de vezes (10 vezes) em que o await50ms sera chamado (10 x 50 ms = 0.5 segundos)
+	
+main:
+	call 	await50ms        ;Chamando rotina await50ms responsavel pelo delay.
+	djnz 	r0,main          ;Decrementa o valor de r0 até zero, caso não seja zero invoca a rotina main.
+	jmp 	setup            ;Retorna  ao setup principal.
+
+await50ms:
+
+	CLR		TF1             ;Limpa o Flag de overflow do timer 1. O Flag de overflow não reseta automaticamente.
+	MOV 	TMOD,#10H       ;Configura o timer 1 em modo de 16-bits.
+	MOV 	TH1, #3CH       ;Atribui 15536 (3CB0H) nos registradores.
+	MOV 	TL1, #0B0H      ;TH1 recebe o Byte mais siginificativo(3C) e TL1 recebe o byte menos significativo(B0).
+	SETB 	TR1             ;Inicia a contagem do timer 1 .O timer inicia a contagem do valor que está nele até 65.536, como setamos 15.536 no timer serão contados 50.000 us (50 ms).
+	JNB 	TF1, $          ;Espera que o flag de overflow seja enviado.
+	Ret	                    ;Retorna onde a rotina foi chamada.
+```
+
 ## Operação do codigo:
 ### Delay
 Ao execultar o blink com um delay de 0.5 segundos no 8051 é necessario ralizar um delay de 50ms 10 vezes consecultivas (10*50ms=50ms). Isso se dá em razão que o 8051 é um microcontrolador de 8 bits, e o maior binario o qual podemos representar é 256(2^8) enquanto em um registrador de 16 bits podemos representar 65.536 (2^16). Como em cada numero é calculado em 1us em um registrador de 8 bits é possiver um delay de 256 us, equanto em um registrador de 16 bits é possivel um delay de 65.536us usando.
