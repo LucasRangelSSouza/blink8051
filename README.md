@@ -26,13 +26,18 @@ Para configurar o timer no modo 16 bits é necessario configurar de acordo com a
 
 #### Registrador TMOD:
 ##### 8-BIT-MODE:
- #
+
+
+
 | Timer | Binario | Hexadecimal | Decimal |
 | ------ | ------ | ------ | ------ |
 |    Timer 1    | MOV TMOD,#10000000B | MOV TMOD,#01H |  MOV TMOD,#1  |
 |    Timer 0    | MOV TMDO,#01000000B | MOV TMOD,#02H |  MOV TMOD,#2  |
+
 ##### 16-BIT-MODE:
- #
+
+
+
 | Timer | Binario | Hexadecimal | Decimal |
 | ------ | ------ | ------ | ------ |
 |    Timer 1    | MOV TMOD,#00001000B | MOV TMOD,#10H |  MOV TMOD,#16  |
