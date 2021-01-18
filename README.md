@@ -76,7 +76,7 @@ De acordo com o simulador edsim51, um loop do programa se utilizado um cristal d
 
 Os dados da tabela acima podem ser conferidos na simulação apresentada no gif abaixo
 
-[](/gifs/8051Test.gif)
+![](https://github.com/LucasRangelSSouza/blink8051/blob/main/gifs/8051test.gif)
 
  
  
