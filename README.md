@@ -77,6 +77,7 @@ De acordo com o simulador edsim51, um loop do programa se utilizado um cristal d
 Os dados da tabela acima podem ser conferidos na simulação apresentada no gif abaixo
 
 [](/gifs/8051Test.gif)
+
  
  
  No geral sao executadas 2 500 829 instruções em 5 segundos 1 milissegundo e 438 microssegundos em 10 loops do programa, o que nos da uma media de 500 milisegundos e 143 microssegundos por loop e 1.99 microssegundos por instrução.
