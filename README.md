@@ -20,6 +20,8 @@ Exemplo: Ao colocar 15.536 (3CB0 em hexadecimal) no registrador do timer no modo
 | ------ | ------ |
 | TH | 3C |
 | TL | B0 |
+
+
 Para configurar o timer no modo 16 bits é necessario configurar de acordo com as tabela abaixo:
 
 #### Registrador TMOD:
